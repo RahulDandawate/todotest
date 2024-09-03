@@ -1,0 +1,52 @@
+<h1 style="text-align: center;" mat-dialog-title>Add New Task</h1>
+<div class="horizontal-line"></div>
+<div mat-dialog-content>  
+    <form [formGroup]="TaskForm">
+        <div class="centered-container">
+            <mat-form-field appearance="outline">
+            <mat-label>Assigned To</mat-label>
+                <mat-select formControlName="assignedto" placeholder="Assigned To">
+                    <mat-option value="User1">User1</mat-option>
+                    <mat-option value="User2">User2</mat-option>
+                    <mat-option value="User3">User3</mat-option>
+                    <mat-option value="User4">User4</mat-option>
+                    <mat-option value="User5">User5</mat-option>
+            </mat-select>   
+            </mat-form-field>
+            <mat-form-field appearance="outline">  
+                <mat-label>Status</mat-label>
+                <mat-select formControlName="status" placeholder="Status">
+                    <mat-option value="Completed">Completed</mat-option>
+                    <mat-option value="In Progress">In Progress</mat-option>
+                    <mat-option value="Not Started">Not Started</mat-option>
+                </mat-select>
+            </mat-form-field>
+            </div>
+            <div class="centered-container">
+            <mat-form-field appearance="outline">
+                <mat-label>Due Date</mat-label>
+                <input formControlName="duedate" matInput [matDatepicker]="picker">
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+              <mat-form-field appearance="outline">  
+                <mat-label>Priority</mat-label>
+                <mat-select formControlName="priority" placeholder="Priority">
+                    <mat-option value="High">High</mat-option>
+                    <mat-option value="Low">Low</mat-option>
+                    <mat-option value="Normal">Normal</mat-option>
+                </mat-select>
+            </mat-form-field>
+            </div>
+            <mat-form-field class="description-container" appearance="outline">
+                <mat-label>Description</mat-label>
+                <textarea formControlName="description" matInput></textarea>
+            </mat-form-field>
+
+    </form>
+    <div class="matactionbtn" mat-dialog-action [align]="'end'">
+        <button mat-raised-button color="warn" style="margin-right: 10px;" mat-dialog-close>Close</button>
+        <button mat-raised-button color="primary" (click)="addTask()">{{actionBtn}}</button>
+    </div>
+</div>
+
